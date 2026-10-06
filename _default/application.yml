@@ -1,7 +1,4 @@
 spring:
-  config:
-    key: ${CONFIG_ENCRYPT_KEY}
-    import: configserver:${CONFIG_GIT_URL}
   profiles:
     active: ${ENVIRONMENT:dev}
   flyway:
