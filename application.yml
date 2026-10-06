@@ -1,0 +1,36 @@
+spring:
+  config:
+    key: ${CONFIG_ENCRYPT_KEY}
+    import: configserver:${CONFIG_GIT_URL}
+  profiles:
+    active: ${ENVIRONMENT:dev}
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    locations: classpath:db/migration
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
+      show-components: always
+
+logging:
+  level:
+    root: INFO
+    com.notirail: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
