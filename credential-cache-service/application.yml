@@ -6,3 +6,9 @@ spring:
     redis:
       host: ${REDIS_HOST:localhost}
       port: ${REDIS_PORT:6379}
+
+grpc:
+  server:
+    host: ${GRPC_HOST:localhost}
+    port: ${GRPC_PORT:9090}
+    maximum-message-size: 4194304 # in bytes (4MB)
