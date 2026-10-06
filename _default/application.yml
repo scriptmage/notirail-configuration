@@ -1,6 +1,4 @@
 spring:
-  profiles:
-    active: ${ENVIRONMENT:dev}
   flyway:
     enabled: true
     baseline-on-migrate: true
