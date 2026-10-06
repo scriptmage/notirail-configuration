@@ -2,3 +2,8 @@ logging:
   level:
     com.notirail: DEBUG
     org.springframework.cloud.config.server: DEBUG
+
+management:
+  health:
+    redis:
+      enabled: false
