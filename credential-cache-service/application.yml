@@ -3,8 +3,8 @@ spring:
     redis:
       host: ${REDIS_HOST:localhost}
       port: ${REDIS_PORT:6379}
-      username: ${REDIS_USERNAME:redis}
-      password: ${REDIS_PASSWORD:redis}
+      username: ${REDIS_USERNAME:}
+      password: ${REDIS_PASSWORD:}
 
 grpc:
   server:
