@@ -8,3 +8,6 @@ spring:
 grpc:
   server:
     host: localhost
+
+redis:
+  credential-ttl: 600s
