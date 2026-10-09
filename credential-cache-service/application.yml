@@ -8,7 +8,7 @@ spring:
 
 grpc:
   server:
-    host: ${GRPC_HOST}
+    host: localhost
     port: ${GRPC_PORT:9090}
     maximum-message-size: ${GRPC_MAXIMUM_MESSAGE_SIZE:4194304} # in bytes (4MB)
 
