@@ -1,18 +1,18 @@
 spring:
   data:
     redis:
-      host: ${REDIS_HOST:localhost}
+      host: ${REDIS_HOST}
       port: ${REDIS_PORT:6379}
-      username: ${REDIS_USERNAME:}
-      password: ${REDIS_PASSWORD:}
+      username: ${REDIS_USERNAME}
+      password: ${REDIS_PASSWORD}
 
 grpc:
   server:
-    host: ${GRPC_HOST:localhost}
+    host: ${GRPC_HOST}
     port: ${GRPC_PORT:9090}
-    maximum-message-size: 4194304 # in bytes (4MB)
+    maximum-message-size: ${GRPC_MAXIMUM_MESSAGE_SIZE:4194304} # in bytes (4MB)
 
 redis:
-  credential-ttl: 60s
-  event-idempotency-ttl: 7d
-  revoked-marker-ttl: 30d
+  credential-ttl: ${REDIS_CREDENTIAL_TTL:60s}
+  event-idempotency-ttl: ${REDIS_EVENT_IDEMPOTENCY_TTL:7d}
+  revoked-marker-ttl: ${REDIS_REVOKED_MARKER_TTL:30d}
