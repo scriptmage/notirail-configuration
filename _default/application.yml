@@ -16,4 +16,17 @@ logging:
     root: ${LOG_LEVEL:INFO}
     com.notirail: ${APP_LOG_LEVEL:INFO}
   pattern:
-    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    console: "%clr(%d{${LOG_DATEFORMAT_PATTERN:yyyy-MM-dd HH:mm:ss.SSS}}){faint} %clr(${LOG_LEVEL_PATTERN:%5p}) %clr(${PID: }){magenta} \
+   %clr(---){faint} %clr([%15.15t]){faint} [%X{trace-id}] %clr(%-40.40logger{39}){cyan} \
+   %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:%wEx}"
+
+grpc:
+  server:
+    host: localhost
+    port: ${GRPC_PORT:9090}
+    maximum-message-size: ${GRPC_MAXIMUM_MESSAGE_SIZE:4194304} # in bytes (4MB)
+
+redis:
+  credential-ttl: ${REDIS_CREDENTIAL_TTL:60s}
+  event-idempotency-ttl: ${REDIS_EVENT_IDEMPOTENCY_TTL:7d}
+  revoked-marker-ttl: ${REDIS_REVOKED_MARKER_TTL:30d}
