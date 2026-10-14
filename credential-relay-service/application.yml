@@ -1,0 +1,32 @@
+spring:
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    locations: classpath:db/migration
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    open-in-view: false
+  datasource:
+    url: jdbc:postgresql://${DB_HOST}:${DB_PORT:5432}/${DB_NAME}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: ${DB_MAXIMUM_POOL_SIZE:10}
+      minimum-idle: ${DB_MINIMUM_IDLE:5}
+
+relay:
+  poll-interval: ${POLL_INTERVAL:1s}
+  batch-size: ${BATCH_SIZE:100}
+  claim-timeout: ${CLAIM_TIMEOUT:30s}
+  max-attempts: ${MAX_ATTEMPTS:10}
+  initial-backoff: ${INITIAL_BACKOFF:1s}
+  max-backoff: ${MAX_BACKOFF:5m}
+
+remotes:
+  credential-cache-service:
+    url: ${CREDENTIAL_CACHE_SERVICE_URL}
+    port: ${CREDENTIAL_CACHE_SERVICE_PORT:9090}
+    deadline: ${CREDENTIAL_CACHE_SERVICE_DEADLINE:5000} # milliseconds
